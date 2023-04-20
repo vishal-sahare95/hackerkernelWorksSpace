@@ -33,11 +33,7 @@ function addData(){
     </span>
   </div>
   `;
-  data.push({
-    id:data.length+1,
-    task:taskInput.value
-  })
-  localStorage.setItem('data',JSON.stringify(data))
+
     }
     taskInput.value=''
    
@@ -47,25 +43,19 @@ function addData(){
 let deleteData = (e) => {
  console.log(e);
     e.parentElement.parentElement.remove();
-    data.splice(e.parentElement.parentElement.id, 1);
-
-    localStorage.setItem("data", JSON.stringify(data));
   };
 
   let editData = (e) => {
-//     if(taskInput.value !==e.parentElement.previousElementSibling.innerHTML){
-// taskInput.value = e.parentElement.previousElementSibling.innerHTML;
+    if(taskInput.value !==e.parentElement.previousElementSibling.innerHTML){
+    taskInput.value = e.parentElement.previousElementSibling.innerHTML;
+    console.log( e.parentElement.previousElementSibling.innerHTML);
+    deleteData(e)
+    }
+    else{
+        e.parentElement.previousElementSibling.innerHTML
+    }
 
-// console.log( e.parentElement.previousElementSibling.innerHTML);
-//     e.parentElement.parentElement.remove();
-//     }
-//     else{
-//         e.parentElement.previousElementSibling.innerHTML
-//     }
-let selectedTask = e.parentElement.parentElement;
 
-taskInput.value = selectedTask.children[0].innerHTML;
-deleteData(e)
   }
 
 
