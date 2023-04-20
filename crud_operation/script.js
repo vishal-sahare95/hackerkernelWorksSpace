@@ -6,24 +6,6 @@ function addData(){
         alert('enter task')
     }
     else{
-        // let li=document.createElement('li') 
-        // let actionContainer=document.createElement('div')
-        // let deleteList=document.createElement('span')
-        // let editList=document.createElement('span')
-
-        // dataContainer.appendChild(li)
-
-        // li.innerHTML=taskInput.value
-        // li.appendChild(actionContainer)
-        // li.classList.add("d-flex", "justify-content-between","p-3","m-3" ,"bg-success");
-
-        // actionContainer.appendChild(deleteList)
-        // deleteList.classList.add("bi", "bi-trash","text-danger","fw-bold");
-
-        // actionContainer.appendChild(editList)        
-        // editList.classList.add("bi", "bi-pencil-square");
-
-
         dataContainer.innerHTML += `
   <div class='d-flex justify-content-between m-3 bg-success'>
     <p>${taskInput.value}</p>
@@ -48,7 +30,6 @@ let deleteData = (e) => {
   let editData = (e) => {
     if(taskInput.value !==e.parentElement.previousElementSibling.innerHTML){
     taskInput.value = e.parentElement.previousElementSibling.innerHTML;
-    console.log( e.parentElement.previousElementSibling.innerHTML);
     deleteData(e)
     }
     else{
